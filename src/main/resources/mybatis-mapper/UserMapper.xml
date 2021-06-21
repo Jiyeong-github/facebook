@@ -3,5 +3,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.koreait.facebook.facebook.user.UserMapper">
-
+    <insert id="join">
+        INSERT INTO t_user(pw, nm, tel, email)
+        VALUES(#{pw},#{nm},#{tel},#{email})
+    </insert>
 </mapper>
