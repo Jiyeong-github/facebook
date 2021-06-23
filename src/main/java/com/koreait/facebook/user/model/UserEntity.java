@@ -1,4 +1,4 @@
-package com.koreait.facebook.facebook.user.model;
+package com.koreait.facebook.user.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +11,6 @@ public class UserEntity {
     private String pw;
     private String nm;
     private String tel;
-    private String authcd;
+    private String authCd;
     private String regdt;
 }

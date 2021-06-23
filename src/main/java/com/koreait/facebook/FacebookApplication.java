@@ -1,4 +1,4 @@
-package com.koreait.facebook.facebook;
+package com.koreait.facebook;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

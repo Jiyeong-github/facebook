@@ -2,9 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.koreait.facebook.facebook.user.UserMapper">
+<mapper namespace="com.koreait.facebook.user.UserMapper">
     <insert id="join">
-        INSERT INTO t_user(pw, nm, tel, email)
-        VALUES(#{pw},#{nm},#{tel},#{email})
+        INSERT INTO t_user(pw, nm, tel, email, authCd)
+        VALUES(#{pw},#{nm},#{tel},#{email}, #{authCd})
     </insert>
+
+    <update id="auth">
+        UPDATE t_user
+        SET authCd = null
+        WHERE email = #{email} AND authCd = #{authCd}
+    </update>
+
+    <select id="selUser" resultType="UserEntity">
+        SELECT*FROM t_user
+        WHERE email=#{email}
+        and authCd is not null
+    </select>
 </mapper>

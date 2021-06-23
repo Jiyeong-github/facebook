@@ -7,9 +7,13 @@
     <link rel="stylesheet" th:href="@{/css/user/login.css}">
 </th:block>
 
+    <th:block layout:fragment="content">
+
+    </th:block>
+
 <th:block layout:fragment="content">
     <h1>login</h1>
-
+    <form th:action="@{/user/login}" method="post"></form>
     <div><a th:href="@{join}">join</a></div>
 </th:block>
 </html>
