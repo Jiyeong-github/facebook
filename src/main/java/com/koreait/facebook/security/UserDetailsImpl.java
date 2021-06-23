@@ -10,7 +10,7 @@ public class UserDetailsImpl implements UserDetails {
 
     private UserEntity user;
 
-    public UserDetailsImpl(UserEntity user){
+    public UserDetailsImpl(UserEntity user) {
         this.user = user;
     }
 
@@ -28,6 +28,8 @@ public class UserDetailsImpl implements UserDetails {
     public String getUsername() {
         return user.getNm();
     }
+
+    public UserEntity getUser() { return user;}
 
     @Override
     public boolean isAccountNonExpired() { //계정 만료됨?

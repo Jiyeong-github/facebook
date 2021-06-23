@@ -4,5 +4,5 @@ import com.koreait.facebook.user.model.UserEntity;
 
 public interface IAuthentificationFacade {
     UserEntity getLoginUser();
-
+    int getLoginUserPk();
 }

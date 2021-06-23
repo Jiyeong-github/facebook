@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception{
-        web.ignoring().antMatchers("/css/**","/js/**","/img/**","error","favicon.ico");
+        web.ignoring().antMatchers("/css/**","/js/**","/img/**","error","favicon.ico","/resources/**");
     }
 
     @Override
@@ -46,10 +46,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordParameter("pw")
                 .defaultSuccessUrl("/feed/home");
 
-        http.logout().logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
+        http.logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
                 .logoutSuccessUrl("/user/login")
                 .invalidateHttpSession(true);
-
     }
 
     @Override

@@ -8,6 +8,7 @@ import com.koreait.facebook.user.model.UserEntity;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,6 +28,9 @@ public class UserService {
 
     @Autowired
     private UserMapper mapper;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public int join(UserEntity param) {
         String authCd = secUtils.getRandomDigit(5);
@@ -49,12 +53,6 @@ public class UserService {
     //이메일 인증 처리
     public int auth(UserEntity param) {
         return mapper.auth(param);
-    }
-
-    //로그인
-    public String login(UserEntity param) {
-        UserEntity loginUser = mapper.selUser(param);
-        return "";
     }
 
     public void profileImg(MultipartFile[] imgArr) {
