@@ -5,11 +5,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
-import java.nio.file.attribute.UserPrincipal;
+import java.io.PrintStream;
 
 @Component
-public class AuthentificationFacadeImpl implements IAuthentificationFacade{
-
+public class AuthenticationFacadeImpl implements IAuthenticationFacade {
     @Override
     public UserEntity getLoginUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -18,7 +17,7 @@ public class AuthentificationFacadeImpl implements IAuthentificationFacade{
     }
 
     @Override
-    public int getLoginUserPk(){
+    public int getLoginUserPk() {
         return getLoginUser().getIuser();
     }
 }

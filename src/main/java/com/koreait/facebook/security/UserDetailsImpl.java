@@ -1,9 +1,9 @@
+
 package com.koreait.facebook.security;
 
 import com.koreait.facebook.user.model.UserEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
 
 public class UserDetailsImpl implements UserDetails {
@@ -26,18 +26,28 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getUsername() {
+        return user.getEmail();
+    }
+
+    public String getNm() {
         return user.getNm();
     }
 
-    public UserEntity getUser() { return user;}
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public UserEntity getMainProfile(){
+        return user;
+    }
 
     @Override
-    public boolean isAccountNonExpired() { //계정 만료됨?
+    public boolean isAccountNonExpired() {
         return true;
     }
 
     @Override
-    public boolean isAccountNonLocked() { //계정 잠금?
+    public boolean isAccountNonLocked() {
         return true;
     }
 
@@ -47,7 +57,7 @@ public class UserDetailsImpl implements UserDetails {
     }
 
     @Override
-    public boolean isEnabled() { //계정 활성화?
+    public boolean isEnabled() {
         return true;
     }
 }
