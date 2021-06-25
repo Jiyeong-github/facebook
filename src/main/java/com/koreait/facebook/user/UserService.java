@@ -11,6 +11,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -79,7 +81,7 @@ public class UserService {
                     param2.setIuser(loginUser.getIuser());
                     param2.setMainProfile(saveFileNm);
 
-                    if (mapper.updUser(param2) == 1){
+                    if (mapper.updUser(param2) == 1) {
                         loginUser.setMainProfile(saveFileNm);
                     }
 
@@ -87,4 +89,15 @@ public class UserService {
             }
         }
     }
+
+    public List<UserProfileEntity> selUserProfileList(UserEntity param) {
+        return profileMapper.selUserProfileList(param);
+    }
+
+    //메인 이미지 변경
+    public int updUserMainProfile(UserProfileEntity param) {
+        param.setIuser(auth.getLoginUserPk());
+        return mapper.updUserMainProfile(param);
+    }
+
 }

@@ -6,4 +6,11 @@
     <insert id="insUserProfile">
     INSERT INTO t_user_profile(iuser, img) VALUES(#{iuser},#{img})
     </insert>
+
+    <select id="selUserProfileList" resultType="UserProfileEntity">
+        SELECT iprofile, img
+        FROM t_user_profile
+        WHERE iuser = #{iuser}
+    </select>
+    <!--#들어가면 값이 들어가는 거라서 인자 값을 줘야 한다-->
 </mapper>
