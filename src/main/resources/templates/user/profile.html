@@ -11,9 +11,9 @@
   <script defer th:src="@{/js/user/profile.js}"></script>
 </th:block>
 
-<th:block layout:fragment="content" th:with="auth=${#authentication.getPrincipal().getUser()}">
+<th:block layout:fragment="content" th:with="auth=${#authentication.getPrincipal()
+  <form th:action="@{profileImg}" method="post" enctype="multipart/form-data">.getUser()}">
   <div th:attr="data-main-profile=${auth.mainProfile}"></div>
-  <form th:action="@{profileImg}" method="post" enctype="multipart/form-data">
     <div>
       이미지 : <input type="file" name="imgArr" multiple accept="image/*">
       <input type="submit" value="업로드">
@@ -39,6 +39,7 @@
                 <i class="no-main-profile pointer fas fa-bell" th:attr="data-iprofile=${item.iprofile}"></i>
               </div>
               <img th:src="@{/pic/profile/{iuser}/{img}(iuser=${auth.iuser}, img=${item.img})}">
+              <!--(값 바뀔 거 = ${값 주입시킬 거})-->
             </div>
           </div>
         </div>

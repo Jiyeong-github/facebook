@@ -33,16 +33,18 @@ function changeMainProfile(iprofile) {
                     break;
                 case 1:
                     setMainProfileIcon(iprofile);
-                    //헤더에 있는 프로필 이미지 변경
-                    const headerProfileImgElem = document.querySelector('header .span__profile');
-                    headerProfileImgElem.src = resultSrc;
-                    break;
-
+                    //바뀐 메인 이미지 img 값을 찾기
+                    profileImgParentList.find(item=>item.dataset.iprofile==iprofile);{
+                        return item.dataset.iprofile === iprofile;
+                    };
                     //sector에 있는 프로필 이미지
                     const src = profileImgElem.src;
                     const frontSrc = src.substring(0, src.lastIndexOf("/"));
                     profileImgElem.src = `${frontSrc} / ${myJson.img}`;
 
+                    //헤더에 있는 프로필 이미지 변경
+                    const headerProfileImgElem = document.querySelector('header .span__profile');
+                    headerProfileImgElem.src = resultSrc;
                     break;
             }
         });

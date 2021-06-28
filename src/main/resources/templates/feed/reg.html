@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="basicLayout">
+<head>
+    <meta charset="UTF-8">
+    <title>피드 등록</title>
+</head>
+
+<th:block layout:fragment="js">
+    <script defer th:src="@{/js/feed/reg.js}"></script>
+</th:block>
+
+<th:block layout:fragment="content">
+    <h1>reg</h1>
+    <form th:action="@{reg}" method="post" enctype="multipart/form-data">
+        <div><textarea th:field="*{ctnt}" name="ctnt" placeholder="지금 무슨 생각을 하고 계신가요?"></textarea></div>
+        <div></div>
+        <div><input id="imgArr" type="file" name="imgArr" multiple accept="image/*" placeholder="피드 이미지"></div>
+    </form>
+    <input type="file" id="selectImgArr" multiple accept="image/*">
+    <div id="selectedImgList"></div>
+</th:block>
+
+</html>
